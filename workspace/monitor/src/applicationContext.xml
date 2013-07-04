@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	<!-- 创建scheduler -->
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="cronTrigger" />
+			</list>
+		</property>
+	</bean>
+	<!-- 配置定时器 -->
+	<bean id="cronTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<property name="jobDetail" ref="captureJob" />
+		<!-- 每5秒钟运行一次 -->
+		<property name="cronExpression" value="0/5 * * * * ? " />
+	</bean>
+	<!-- 配置Job -->
+	<bean name="captureJob"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.ibm.event.capture.SocketClientJobBean" />
+		<property name="Durability" value="true" />
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="ip" value="192.168.1.1" />
+				<entry key="port" value="30123" />
+				<entry key="cmd" value="ps -ef" />
+				<entry key="processEventBuilder" value-ref="aixProcessEventBuilder" />
+				<entry key="eventService" value-ref="eventService" />
+			</map>
+		</property>
+	</bean>
+
+	<!-- 用于将ps -ef的输出解析为ProcessEvent数组 -->
+	<bean name="aixProcessEventBuilder" class="com.ibm.event.AixProcessEventBuilderImpl"></bean>
+	
+	<!-- event engine, accept the event, process and call the listeners -->
+	<bean name="eventService" class="com.ibm.event.cep.EventService">
+		<property name="listener">
+			<list>
+				<ref local="strangerListener" />
+			</list>
+		</property>
+	</bean>
+
+	<import resource="strangerListener.xml" />
+
+	<bean name="reporter" class="com.ibm.event.reporter.SystemOutReporterImpl"></bean>
+
+</beans>

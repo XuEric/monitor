@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean name="strangerListener" class="com.ibm.event.listener.StrangerListenerImpl">
+		<property name="epl" value="true" />
+		<property name="reporter" ref="reporter"></property>
+		<property name="whitelist">
+			<list>
+				<value>proc_1</value>
+				<value>proc_2</value>
+				<value>proc_3</value>
+				<value>proc_4</value>
+				<value>proc_5</value>
+			</list>
+		</property>
+	</bean>
+</beans>
