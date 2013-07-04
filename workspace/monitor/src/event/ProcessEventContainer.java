@@ -1,4 +1,4 @@
-package com.ibm.event;
+package event;
 
 import java.util.ArrayList;
 import java.util.Hashtable;

@@ -1,4 +1,4 @@
-package com.ibm.event.capture;
+package event.capture;
 
 import java.util.HashSet;
 

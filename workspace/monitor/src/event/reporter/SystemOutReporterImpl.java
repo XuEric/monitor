@@ -1,4 +1,4 @@
-package com.ibm.event.reporter;
+package event.reporter;
 
 public class SystemOutReporterImpl implements Reporter {
 

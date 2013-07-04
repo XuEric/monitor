@@ -1,14 +1,15 @@
-package com.ibm.event.capture;
+package event.capture;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ibm.event.AixProcessEventBuilderImpl;
-import com.ibm.event.ProcessEvent;
-import com.ibm.event.ProcessEventBuilder;
-import com.ibm.event.cep.EventService;
-import com.ibm.event.listener.StrangerListenerImpl;
-import com.ibm.event.reporter.SystemOutReporterImpl;
+
+import event.AixProcessEventBuilderImpl;
+import event.ProcessEvent;
+import event.ProcessEventBuilder;
+import event.cep.EventService;
+import event.listener.StrangerListenerImpl;
+import event.reporter.SystemOutReporterImpl;
 
 public class Main {
 

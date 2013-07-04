@@ -1,4 +1,4 @@
-package com.ibm.event.listener;
+package event.listener;
 
 import com.espertech.esper.client.UpdateListener;
 

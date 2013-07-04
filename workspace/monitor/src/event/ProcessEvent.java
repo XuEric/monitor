@@ -1,4 +1,4 @@
-package com.ibm.event;
+package event;
 
 public class ProcessEvent {
 

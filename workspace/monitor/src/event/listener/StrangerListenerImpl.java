@@ -1,11 +1,12 @@
-package com.ibm.event.listener;
+package event.listener;
 
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 
 import com.espertech.esper.client.EventBean;
-import com.ibm.event.reporter.Reporter;
+
+import event.reporter.Reporter;
 
 public class StrangerListenerImpl implements UpdateListenerWithEpl {
 	private static final String epl = "select distinct procName, cmd "

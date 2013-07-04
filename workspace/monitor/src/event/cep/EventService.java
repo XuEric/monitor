@@ -1,11 +1,12 @@
-package com.ibm.event.cep;
+package event.cep;
 
 import com.espertech.esper.client.Configuration;
 import com.espertech.esper.client.EPServiceProvider;
 import com.espertech.esper.client.EPServiceProviderManager;
 import com.espertech.esper.client.EPStatement;
-import com.ibm.event.ProcessEvent;
-import com.ibm.event.listener.UpdateListenerWithEpl;
+
+import event.ProcessEvent;
+import event.listener.UpdateListenerWithEpl;
 
 public class EventService {
 	private static EventService instance;

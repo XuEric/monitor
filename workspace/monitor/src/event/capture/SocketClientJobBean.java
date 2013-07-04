@@ -1,4 +1,4 @@
-package com.ibm.event.capture;
+package event.capture;
 
 import java.util.Date;
 
@@ -6,9 +6,10 @@ import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 
-import com.ibm.event.ProcessEvent;
-import com.ibm.event.ProcessEventBuilder;
-import com.ibm.event.cep.EventService;
+
+import event.ProcessEvent;
+import event.ProcessEventBuilder;
+import event.cep.EventService;
 
 public class SocketClientJobBean extends QuartzJobBean {
 
